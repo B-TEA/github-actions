@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class MyTest {
 
-    private final int RESULT_TEST_2_PLUS_2 = 4
+    private final int RESULT_TEST_2_PLUS_2 = 4;
 
     /**
      * Basic Test.
