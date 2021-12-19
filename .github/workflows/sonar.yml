@@ -2,9 +2,7 @@ name: Sonar
 
 on:
   push:
-    branches:
-      - master
-
+    branches: [ main ]
     
 jobs:
   sonarcloud:
