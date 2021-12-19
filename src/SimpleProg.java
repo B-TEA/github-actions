@@ -4,7 +4,10 @@
  */
 public final class SimpleProg {
 
-    private SimpleProg () {}
+    /**
+     * Private constructor.
+     */
+    private SimpleProg() { }
     
     /**
      * Addiert zwei Zahlen.
