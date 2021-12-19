@@ -1,0 +1,91 @@
+<project name="BUI_Advanced_Buildmanagement" default="all" basedir=".">
+
+  <description>
+    Aufgabe: LE Buildmanagement++
+  </description>
+
+  <!-- Compilation flags & Versions -->
+  <property name="java.encoding"     value="UTF-8"/>
+  <property name="java.source"       value="11"/>
+  <property name="java.target"       value="11"/>
+  <property name="java.compilerargs" value="-Werror -Xlint:all -Xlint:-options -Xlint:-serial"/>
+
+  <!-- directories -->
+  <property name="src.dir"      location="src/"/>
+  <property name="src.test.dir" location="test/"/>
+  <property name="lib.dir"      location="lib/"/>
+  <property name="doc.dir"      location="doc/"/>
+  <property name="out.dir"      location="bin/"/>
+
+  <!-- Buildingtools -->
+  <property name="junit.jar"                    location="${lib.dir}/junit.jar"/>
+  <property name="hamcrest-core.jar"            location="${lib.dir}/hamcrest-core.jar"/>
+  <property name="checkstyle.jar"               location="${lib.dir}/checkstyle.jar"/>
+  <property name="checkstyle.conf"              location="checkstyleconfig_bianca.xml"/>
+  <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar}"/>
+
+  <!-- ALL -->
+  <target name="all" depends="run-check, run-tests, create-doc" />
+
+  <!-- COMPILE -->
+  <target name="compile"  depends="run-check, create-doc">
+    <mkdir dir="${out.dir}"/>
+    <javac source="${java.source}" target="${java.target}"
+           srcdir="${src.dir}" destdir="${out.dir}"
+           includeantruntime="false"
+           failonerror="true"
+           verbose="yes">
+      <compilerarg line="${java.compilerargs}"/>
+    </javac>
+  </target>
+
+  <!-- COMPILE TESTS -->
+  <target name="compile-tests" depends="compile">
+    <javac source="${java.source}" target="${java.target}"
+           srcdir="${src.test.dir}" destdir="${out.dir}"
+           classpath="${junit.jar}:${out.dir}"
+           includeantruntime="false"
+           failonerror="true"
+           verbose="yes">
+      <compilerarg line="${java.compilerargs}"/>
+    </javac>
+  </target>
+
+  <!-- RUN CHECKSTYLE -->
+  <target name="run-check">
+    <checkstyle config="${checkstyle.conf}" failOnViolation="true"  maxWarnings="0">
+      <fileset dir="${src.dir}" includes="**/*.java"/>
+    </checkstyle>
+  </target>
+
+  <!-- RUN JUNIT TESTS-->
+  <target name="run-tests" depends="compile-tests">
+    <junit fork="yes" haltonerror="yes" haltonfailure="yes">
+      <classpath>
+        <pathelement path="${junit.jar}:${hamcrest-core.jar}:${out.dir}"/>
+      </classpath>
+      <jvmarg value="-ea"/>
+      <test name="TestSuite">
+        <formatter type="brief" usefile="false"/>
+      </test>
+    </junit>
+
+  </target>
+
+  <!-- GENERATE JAVADOC -->
+  <target name="create-doc">
+    <javadoc destdir="${doc.dir}"
+             encoding="UTF-8" docencoding="UTF-8" charset="UTF-8"
+             author="true" use="true" failonerror="true">
+      <arg value="-Xwerror"/>
+      <fileset dir="${src.dir}"/>
+    </javadoc>
+  </target>
+
+  <!-- CLEAN -->
+  <target name="clean">
+    <delete dir="${out.dir}"/>
+    <delete dir="${doc.dir}"/>
+  </target>
+
+</project>
