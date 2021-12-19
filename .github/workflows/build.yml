@@ -53,7 +53,7 @@ jobs:
         
     # ant: Tests complien und ausführen
     - name: Run tests
-      run: ant compile-tests run-check
+      run: ant compile-tests run-tests
       
     # shell: Programm mit den Parametern 2 und 3 aufrufen (addition..)
     - name: Add 2 to 3
