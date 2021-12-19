@@ -6,27 +6,26 @@
 public final class AdditionProgram {
 
     /**
-     * Privater Konstructor.
-     */
-    private AdditionProgram() { }
-
-    /**
      * Anzahl der notwendigen Argumente.
      */
     private static final int ARG_COUNT = 2;
+
+    /**
+     * Privater Konstructor.
+     */
+    private AdditionProgram() { }
 
     /**
      * Main Klasse.
      * @param args Terminal Parameter.
      */
     public static void main(final String[] args) {
-        //assert args.length == ARG_COUNT;
+        assert args.length == ARG_COUNT;
         int i1;
         int i2;
         int result = 0;
 
-        Boolean success = true;
-
+        boolean success = true;
 
         try {
             i1 = Integer.parseInt(args[0]);
