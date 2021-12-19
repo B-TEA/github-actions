@@ -15,3 +15,11 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: sonar-scanner
+        # You may pin to the exact commit or the version.
+        # uses: Warchant/setup-sonar-scanner@11711243d0cc6c260466862b5f7abd902f77b495
+        uses: Warchant/setup-sonar-scanner@v3
+        with:
+          # Sonar-scanner version
+          version:  default is 4.2.0.1873
