@@ -3,7 +3,12 @@
  * Notwendig für ein Konsolenanwendung.
  * @author Bianca Kolodziej
  */
-public class AdditionProgram {
+public final class AdditionProgram {
+
+    /**
+     * Privater Konstructor.
+     */
+    private AdditionProgram() { }
 
     /**
      * Anzahl der notwendigen Argumente.
@@ -14,7 +19,7 @@ public class AdditionProgram {
      * Main Klasse.
      * @param args Terminal Parameter.
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         //assert args.length == ARG_COUNT;
         int i1;
         int i2;
