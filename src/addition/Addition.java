@@ -1,4 +1,12 @@
 /**
+ * Paket.
+ *
+ * @author Bianca Kolodziej.
+ * @version 1.0
+ */
+package addition;
+
+/**
  * Addition.
  * @author Bianca Kolodziej
  */
