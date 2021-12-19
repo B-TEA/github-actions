@@ -3,14 +3,15 @@ import org.junit.Test;
 
 public class MyTest {
 
+    private final int RESULT_TEST_2_PLUS_2 = 4
+
     /**
-     * Basic Test. 
+     * Basic Test.
      * Checks if 2 + 2 = 4
      */
     @Test
     public void testSum() {
-        int result = 4;
-        Assert.assertEquals(result, SimpleProg.sum(2, 2));
+        Assert.assertEquals(RESULT_TEST_2_PLUS_2, SimpleProg.sum(2, 2));
     }
 
 }
