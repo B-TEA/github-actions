@@ -7,9 +7,23 @@ on:
   push:
     branches: [ main ]
 
-jobs:         
+jobs:
+  lint:
+  
+    name: Lint Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run Linter on Project
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          
   build:
-
     runs-on: ubuntu-latest
 
     steps:
