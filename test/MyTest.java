@@ -14,7 +14,7 @@ public class MyTest {
      */
     @Test
     public void testSum() {
-        Assert.assertEquals(result2Plus2, SimpleProg.sum(2, 2));
+        Assert.assertEquals(result2Plus2, Addition.sum(2, 2));
     }
 
 }

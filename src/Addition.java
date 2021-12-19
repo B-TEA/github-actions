@@ -1,13 +1,13 @@
 /**
- * Testprog.
+ * Addition.
  * @author Bianca Kolodziej
  */
-public final class SimpleProg {
+public final class Addition {
 
     /**
-     * Private constructor.
+     * Privater Konstructor.
      */
-    private SimpleProg() { }
+    private Addition() { }
 
     /**
      * Addiert zwei Zahlen.
