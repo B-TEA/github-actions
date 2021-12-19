@@ -2,15 +2,17 @@
  * Testprog.
  * @author Bianca Kolodziej
  */
-public class SimpleProg {
+public final class SimpleProg {
 
+    private SimpleProg () {}
+    
     /**
      * Addiert zwei Zahlen.
      * @param i1 erste Zahl
      * @param i2 zweite Zahl
-     * @return Summe beider zahlen  
+     * @return Summe beider zahlen
      */
-    public static int sum(int i1, int i2) {
+    public static int sum(final int i1, final int i2) {
         return i1 + i2;
     }
 
