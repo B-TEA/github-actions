@@ -1,5 +1,5 @@
 /**
- * Paket.
+ * addition Paket.
  *
  * @author Bianca Kolodziej.
  * @version 1.0
