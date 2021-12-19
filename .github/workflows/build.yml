@@ -8,44 +8,54 @@ on:
     branches: [ main ]
 
 
-jobs:        
-  build:
-    name: Build project
-    runs-on: ubuntu-latest
+jobs:
 
+  build:
+    name: Build & Check project
+    runs-on: ubuntu-latest
     steps:
+    
+    # Checkout project mit Github Actions
     - name: Checkout project
       uses: actions/checkout@v2
     
+    # Java initialisieren
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
         java-version: '11'
         distribution: 'adopt'
         
+    # ant: Checkstyle aufrufen
     - name: Run Checkstyle
       run: ant run-check
 
-    #- name: Run super-linter on Project
-    #  uses: github/super-linter@v3
-    #  env:
-    #      DEFAULT_BRANCH: main
-    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # Linter ausführen
+    - name: Run super-linter on project
+      uses: github/super-linter@v3
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # ant: JavaDoc
     - name: Creat javadoc
       run: ant create-doc
       
+    # ant: Projekt Compilen
     - name: Compile project
       run: ant compile
       
+    # SonarCloud ausführen
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         
+    # ant: Tests complien und ausführen
     - name: Run tests
       run: ant compile-tests run-check
       
+    # shell: Programm mit den Parametern 2 und 3 aufrufen (addition..)
     - name: Add 2 to 3
       run: java -cp bin AdditionProgram 2 3
