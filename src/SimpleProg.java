@@ -8,7 +8,7 @@ public final class SimpleProg {
      * Private constructor.
      */
     private SimpleProg() { }
-    
+
     /**
      * Addiert zwei Zahlen.
      * @param i1 erste Zahl
