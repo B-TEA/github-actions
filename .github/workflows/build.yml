@@ -8,34 +8,7 @@ on:
     branches: [ main ]
 
 
-
-jobs:
-  lint:
-    name: Lint project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Run Linter on Project
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-  sonar-cube:  
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          
+jobs:        
   build:
     name: Build project
     runs-on: ubuntu-latest
@@ -52,6 +25,12 @@ jobs:
         
     - name: Run Checkstyle
       run: ant run-check
+
+    - name: Run super-linter on Project
+      uses: github/super-linter@v3
+      env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Creat javadoc
       run: ant create-doc
