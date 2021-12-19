@@ -3,7 +3,8 @@ import org.junit.Test;
 
 public class MyTest {
 
-    private final int RESULT_TEST_2_PLUS_2 = 4;
+    // Constant 2 plus 2 = 4.
+    private final int result2Plus2 = 4;
 
     /**
      * Basic Test.
@@ -11,7 +12,7 @@ public class MyTest {
      */
     @Test
     public void testSum() {
-        Assert.assertEquals(RESULT_TEST_2_PLUS_2, SimpleProg.sum(2, 2));
+        Assert.assertEquals(result2Plus2, SimpleProg.sum(2, 2));
     }
 
 }
