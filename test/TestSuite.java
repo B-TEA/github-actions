@@ -7,7 +7,7 @@ import org.junit.runners.Suite;
     MyTest.class
 })
 
-public class TestSuite {
+public final class TestSuite {
 
     /**
      * Private Constructor.
