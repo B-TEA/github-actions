@@ -3,7 +3,9 @@ import org.junit.Test;
 
 public class MyTest {
 
-    // Constant 2 plus 2 = 4.
+    /**
+     * Constant 2 plus 2 = 4.
+     */
     private final int result2Plus2 = 4;
 
     /**
