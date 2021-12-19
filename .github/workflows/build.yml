@@ -26,11 +26,11 @@ jobs:
     - name: Run Checkstyle
       run: ant run-check
 
-    - name: Run super-linter on Project
-      uses: github/super-linter@v3
-      env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Run super-linter on Project
+    #  uses: github/super-linter@v3
+    #  env:
+    #      DEFAULT_BRANCH: main
+    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: SonarCloud Scan
       # You may pin to the exact commit or the version.
