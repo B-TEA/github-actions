@@ -37,4 +37,4 @@ jobs:
       run: ant compile-tests run-check
       
     - name: Add 2 to 3
-      run: java -cp bin AdditionProgram 2 3
+      run: java -cp bin/addition AdditionProgram 2 3
